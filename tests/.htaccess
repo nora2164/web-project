@@ -1,0 +1,2 @@
+# Block direct access from the browser (Apache)
+Require all denied
