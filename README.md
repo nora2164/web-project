@@ -57,6 +57,7 @@ Security was a focus of this project:
 │   ├── schema.mysql.sql  # MySQL tables
 │   ├── schema.sqlite.sql # SQLite tables
 │   └── seed_books.php    # Sample summaries
+├── tests/e2e.sh          # End-to-end tests
 ├── config.php            # Reads DB settings from environment variables
 └── setup.php             # One-click installer
 ```
@@ -90,7 +91,20 @@ DB_DRIVER=sqlite php -S localhost:8000
 # then open http://localhost:8000/setup.php, then http://localhost:8000
 ```
 
+> **Upgrading from the first version?** The database structure changed (users were added),
+> so delete the old `booksummaries` database in phpMyAdmin, then open `setup.php` again.
+>
 > Delete `setup.php` before deploying the site to a public server.
+
+### Run the tests
+
+```bash
+bash tests/e2e.sh
+```
+
+33 end-to-end checks run against a temporary SQLite database: registration, login, search,
+favorites, ratings, reordering, and security checks (XSS, CSRF, open redirects, users not
+being able to change each other's data).
 
 ## 📸 Screenshots
 
