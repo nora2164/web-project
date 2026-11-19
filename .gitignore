@@ -1,0 +1,8 @@
+# Local SQLite database (created by setup.php when DB_DRIVER=sqlite)
+database/*.sqlite
+
+# Editor / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
